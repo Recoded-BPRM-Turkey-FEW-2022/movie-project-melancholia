@@ -32,7 +32,7 @@
 	        	<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="genres" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genres</a>
               <div class="dropdown-menu" aria-labelledby="genres">
-              	<a class="dropdown-item" href="#">Horror</a>
+              	<a class="dropdown-item" href="#" onClick="horror()">Horror</a>
                 <a class="dropdown-item" href="#">Drama</a>
                 <a class="dropdown-item" href="#">Sci-fi</a>
                 <a class="dropdown-item" href="#">Comedy</a>
@@ -41,11 +41,11 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="filterBy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter By</a>
                 <div class="dropdown-menu" aria-labelledby="filterBy">
-                    <a class="dropdown-item" href="#">Popularity</a>
-                  <a class="dropdown-item" href="#">Release Date</a>
-                  <a class="dropdown-item" href="#">Top Rated</a>
-                  <a class="dropdown-item" href="#">Now Playing</a>
-                  <a class="dropdown-item" href="#">Upcoming</a>
+                    <a onClick="filterBy('popular/')"class="dropdown-item" href="#">Popularity</a>
+                  <a onClick="filterBy('latest')" class="dropdown-item" href="#">Release Date</a>
+                  <a onClick="filterBy('top_rated')" class="dropdown-item" href="#">Top Rated</a>
+                  <a onClick="filterBy('now_playing')" class="dropdown-item" href="#">Now Playing</a>
+                  <a onClick="filterBy('upcoming')" class="dropdown-item" href="#">Upcoming</a>
                 </div>
               </li>
 	        	<li id="actorList"onClick="actorList()" class="nav-item"><a href="#" class="nav-link">Actor List</a></li>
@@ -63,6 +63,7 @@
       </div>
     </footer>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="filterBy.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
