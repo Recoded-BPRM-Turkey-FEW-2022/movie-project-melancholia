@@ -32,10 +32,10 @@
 	        	<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="genres" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genres</a>
               <div class="dropdown-menu" aria-labelledby="genres">
-              	<a class="dropdown-item" href="#" onClick="horror()">Horror</a>
-                <a class="dropdown-item" href="#">Drama</a>
-                <a class="dropdown-item" href="#">Sci-fi</a>
-                <a class="dropdown-item" href="#">Comedy</a>
+              	<a onClick="genreFilter('horror')" class="dropdown-item" href="#">Horror</a>
+                <a onClick="genreFilter('drama')" class="dropdown-item" href="#">Drama</a>
+                <a onClick="genreFilter('scifi')" class="dropdown-item" href="#">Sci-fi</a>
+                <a onClick="genreFilter('comedy')" class="dropdown-item" href="#">Comedy</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -64,6 +64,7 @@
     </footer>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="filterBy.js"></script>
+    <script type="text/javascript" src="genreFilter.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
