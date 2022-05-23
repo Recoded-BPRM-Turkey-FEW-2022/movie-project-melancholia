@@ -31,7 +31,3 @@ const filterByReleaseDateFetch = async () => {
 const releaseDateUrlGenerator = () => {
     return `https://api.themoviedb.org/3/discover/movie?api_key=${atob("NTQyMDAzOTE4NzY5ZGY1MDA4M2ExM2M0MTViYmM2MDI=")}&sort_by=release_date.desc`;
 };
-
-// static _ReleaseDataConstructUrl() {
-//   return `${this.TMDB_BASE_URL}/discover/movie?api_key=${atob('NTQyMDAzOTE4NzY5ZGY1MDA4M2ExM2M0MTViYmM2MDI=')}&sort_by=release_date.desc`;
-// }
