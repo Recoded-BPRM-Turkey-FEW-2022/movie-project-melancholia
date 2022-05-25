@@ -1,72 +1,136 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Movie</title>
-</head>
+  </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container-fluid w-75">
-	    
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="fa fa-bars"></span> Menu
-	      </button>
-				<form action="#" class="searchform order-lg-last">
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+      id="ftco-navbar"
+    >
+      <div class="container-fluid w-75">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#ftco-nav"
+          aria-controls="ftco-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="fa fa-bars"></span> Menu
+        </button>
+        <form action="#" class="searchform order-lg-last">
           <div class="form-group d-flex">
-            <input type="text" class="form-control pl-3" placeholder="Search">
-            <button type="submit" placeholder="" class="form-control search"><span class="fa fa-search"></span></button>
+            <input type="text" class="form-control pl-3" placeholder="Search" />
+            <button type="submit" placeholder="" class="form-control search">
+              <span class="fa fa-search"></span>
+            </button>
           </div>
         </form>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav mr-auto">
-	        	<li onClick="cleaner(),autorun()" class="nav-item"><a  href="#" class="nav-link">Home</a></li>
-	        	<li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="genres" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genres</a>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav mr-auto">
+            <li onClick="cleaner(),autorun()" class="nav-item">
+              <a href="#" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="genres"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Genres</a
+              >
               <div class="dropdown-menu" aria-labelledby="genres">
-              	<a class="dropdown-item" href="#">Horror</a>
+                <a class="dropdown-item" href="#">Horror</a>
                 <a class="dropdown-item" href="#">Drama</a>
                 <a class="dropdown-item" href="#">Sci-fi</a>
                 <a class="dropdown-item" href="#">Comedy</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="filterBy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter By</a>
-                <div class="dropdown-menu" aria-labelledby="filterBy">
-                    <a class="dropdown-item" href="#">Popularity</a>
-                  <a class="dropdown-item" href="#">Release Date</a>
-                  <a class="dropdown-item" href="#">Top Rated</a>
-                  <a class="dropdown-item" href="#">Now Playing</a>
-                  <a class="dropdown-item" href="#">Upcoming</a>
-                </div>
-              </li>
-	        	<li id="actorList"onClick="actorList()" class="nav-item"><a href="#" class="nav-link">Actor List</a></li>
-	        	<li onClick="about()"class="nav-item"><a href="#" class="nav-link">About</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="filterBy"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Filter By</a
+              >
+              <div class="dropdown-menu" aria-labelledby="filterBy">
+                <a class="dropdown-item" href="#">Popularity</a>
+                <a class="dropdown-item" href="#">Release Date</a>
+                <a class="dropdown-item" href="#">Top Rated</a>
+                <a class="dropdown-item" href="#">Now Playing</a>
+                <a class="dropdown-item" href="#">Upcoming</a>
+              </div>
+            </li>
+            <li id="actorList" onClick="actorList()" class="nav-item">
+              <a href="#" class="nav-link">Actor List</a>
+            </li>
+            <li onClick="about()" class="nav-item">
+              <a href="#" class="nav-link">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <div id="movies" class="container-content container-fluid d-flex flex-row flex-wrap justify-content-center text-center mt-4 ">
-    </div>
-    <footer class="container-fluid w-100 p-3 mt-2 navbar nav d-flex justify-content-center">
+    <div
+      id="movies"
+      class="container-content container-fluid d-flex flex-row flex-wrap justify-content-center text-center mt-4"
+    ></div>
+
+    <div
+      id="topFiveActors"
+      class="d-flex flex-row flex-wrap justify-content-center"
+    ></div>
+
+    <div id="singleMovie" class="d-flex flex-row justify-content-center"></div>
+
+    <footer
+      class="container-fluid w-100 p-3 mt-2 navbar nav d-flex justify-content-center"
+    >
       <div class="text-center">
-        <h5>Created by <a href="https://github.com/selinsuvarol">Selin Su Varol</a> and <a href="https://github.com/gizemhaspolat?tab=repositories">Gizem Haspolat</a></h5>
+        <h5>
+          Created by
+          <a href="https://github.com/selinsuvarol">Selin Su Varol</a> and
+          <a href="https://github.com/gizemhaspolat?tab=repositories"
+            >Gizem Haspolat</a
+          >
+        </h5>
       </div>
     </footer>
-    <script type="text/javascript" src="script.js"></script>
+
     <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
