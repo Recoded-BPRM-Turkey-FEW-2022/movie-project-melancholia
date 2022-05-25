@@ -20,7 +20,16 @@
     />
     <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="style.css">
     <title>Movie</title>
   </head>
 
@@ -65,40 +74,28 @@
                 >Genres</a
               >
               <div class="dropdown-menu" aria-labelledby="genres">
-                <a class="dropdown-item" href="#">Horror</a>
-                <a class="dropdown-item" href="#">Drama</a>
-                <a class="dropdown-item" href="#">Sci-fi</a>
-                <a class="dropdown-item" href="#">Comedy</a>
+              	<a onClick="genreFilter('horror')" class="dropdown-item" href="#">Horror</a>
+                <a onClick="genreFilter('drama')" class="dropdown-item" href="#">Drama</a>
+                <a onClick="genreFilter('scifi')" class="dropdown-item" href="#">Sci-fi</a>
+                <a onClick="genreFilter('comedy')" class="dropdown-item" href="#">Comedy</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="filterBy"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Filter By</a
-              >
-              <div class="dropdown-menu" aria-labelledby="filterBy">
-                <a class="dropdown-item" href="#">Popularity</a>
-                <a class="dropdown-item" href="#">Release Date</a>
-                <a class="dropdown-item" href="#">Top Rated</a>
-                <a class="dropdown-item" href="#">Now Playing</a>
-                <a class="dropdown-item" href="#">Upcoming</a>
-              </div>
-            </li>
-            <li id="actorList" onClick="actorList()" class="nav-item">
-              <a href="#" class="nav-link">Actor List</a>
-            </li>
-            <li onClick="about()" class="nav-item">
-              <a href="#" class="nav-link">About</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+                <a class="nav-link dropdown-toggle" href="#" id="filterBy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter By</a>
+                <div class="dropdown-menu" aria-labelledby="filterBy">
+                    <a onClick="filterBy('popular/')"class="dropdown-item" href="#">Popularity</a>
+                  <a onClick="filterByReleaseDate()" class="dropdown-item" href="#">Release Date</a>
+                  <a onClick="filterBy('top_rated')" class="dropdown-item" href="#">Top Rated</a>
+                  <a onClick="filterBy('now_playing')" class="dropdown-item" href="#">Now Playing</a>
+                  <a onClick="filterBy('upcoming')" class="dropdown-item" href="#">Upcoming</a>
+                </div>
+              </li>
+	        	<li id="actorList"onClick="actorList()" class="nav-item"><a href="#" class="nav-link">Actor List</a></li>
+	        	<li onClick="about()"class="nav-item"><a href="#" class="nav-link">About</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
 
     <div
       id="movies"
@@ -125,12 +122,16 @@
         </h5>
       </div>
     </footer>
-
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="filterBy.js"></script>
+    <script type="text/javascript" src="genreFilter.js"></script>
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-  </body>
+    <script src="about.js"></script>
+</body>
+
 </html>

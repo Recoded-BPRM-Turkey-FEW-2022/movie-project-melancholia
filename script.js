@@ -132,7 +132,17 @@ const renderMovies = (movies) => {
     const movieDiv = document.createElement("div");
     movieDiv.classList =
       "col-lg-3 col-md-4 col-sm-12 m-3 p-0 rounded d-flex flex-column movieCard";
-    movieDiv.innerHTML = `
+    if (movie.backdrop_path == null) {
+      movieDiv.innerHTML = `
+        <img class="w-100 rounded-top" src="/images/movie-null.jpg" alt="${
+          movie.title
+        } poster">
+      <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-between ">
+        <h5 class="text-left mt-1 ml-2">${movie.title.toUpperCase()}</h5>
+        <h6 class="vote_average">${movie.vote_average}</h6>
+      </div>`;
+    } else if (movie.backdrop_path !== null) {
+      movieDiv.innerHTML = `
         <img class="w-100 rounded-top" src="${
           BACKDROP_BASE_URL + movie.backdrop_path
         }" alt="${movie.title} poster">
@@ -140,6 +150,7 @@ const renderMovies = (movies) => {
         <h5 class="text-left mt-1 ml-2">${movie.title.toUpperCase()}</h5>
         <h6 class="vote_average">${movie.vote_average}</h6>
       </div>`;
+    }
     movieDiv.addEventListener("click", () => {
       movieDetails(movie);
     });
@@ -257,7 +268,7 @@ const renderActors = (actors) => {
       "col-lg-1 col-md-4 col-sm-6 m-3 p-0 rounded d-flex flex-column actorCard";
     if (actor.profile_path == null) {
       actorDiv.innerHTML = `
-        <img style="width:185px"class="w-100  rounded-top" src="https://i.pinimg.com/736x/c1/6c/72/c16c7242915b5ee0479c7e530b77fd9b.jpg" ${actor.name} poster">
+        <img style="width:185px"class="w-100  rounded-top" src="/images/actor-null.jpg" ${actor.name} poster">
       <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-center">
         <h5>${actor.name}</h5>
       </div>`;
