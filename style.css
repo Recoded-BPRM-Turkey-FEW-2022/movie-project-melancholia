@@ -74,3 +74,41 @@ h5{
 footer{
     background-color: #361e46 !important;
 }
+.logos{
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: scale();
+	animation: float 4s ease-in-out infinite;
+}
+.logos2{
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: scale();
+	animation: float2 4s ease-in-out infinite;
+}
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: scale();
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: scale(1.2);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: scale();
+	}
+}
+@keyframes float2 {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: scale(1.2);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: scale(1);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: scale(1.2);
+	}
+}
