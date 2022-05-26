@@ -176,6 +176,65 @@ const renderMovie = async (movie) => {
               movie.release_date
             }</p>
             <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
+            <p id="movie-language"><b>Language:</b> ${
+              movie.original_language == "en"
+                ? "English"
+                : movie.original_language == "es"
+                ? "Spanish"
+                : movie.original_language == "fr"
+                ? "French"
+                : movie.original_language == "it"
+                ? "Italian"
+                : movie.original_language == "de"
+                ? "German"
+                : movie.original_language == "pt"
+                ? "Portuguese"
+                : movie.original_language == "ru"
+                ? "Russian"
+                : movie.original_language == "ja"
+                ? "Japanese"
+                : movie.original_language == "ko"
+                ? "Korean"
+                : movie.original_language == "zh"
+                ? "Chinese"
+                : movie.original_language == "ar"
+                ? "Arabic"
+                : movie.original_language == "tr"
+                ? "Turkish"
+                : movie.original_language == "pl"
+                ? "Polish"
+                : movie.original_language == "nl"
+                ? "Dutch"
+                : movie.original_language == "sv"
+                ? "Swedish"
+                : movie.original_language == "no"
+                ? "Norwegian"
+                : movie.original_language == "fi"
+                ? "Finnish"
+                : movie.original_language == "da"
+                ? "Danish"
+                : movie.original_language == "cs"
+                ? "Czech"
+                : movie.original_language == "hu"
+                ? "Hungarian"
+                : movie.original_language == "el"
+                ? "Greek"
+                : movie.original_language == "he"
+                ? "Hebrew"
+                : movie.original_language == "hi"
+                ? "Hindi"
+                : movie.original_language == "id"
+                ? "Indonesian"
+                : movie.original_language == "ms"
+                ? "Malay"
+                : movie.original_language == "no"
+                ? "Norwegian"
+                : movie.original_language == "fa"
+                ? "Persian"
+                : movie.original_language == "ro"
+                ? "Romanian"
+                : "Unknown"
+            }</p>
             <p id="movie-director"><b>Director:</b> ${
               credits[0].crew.find((crew) => crew.job === "Director").name
             }</p>
@@ -209,7 +268,9 @@ const renderMovie = async (movie) => {
                  PROFILE_BASE_URL + actor.profile_path
                }" ${actor.name} poster">
              <div class="h-100 m-0 p-2 row d-flex align-items-center justify-content-center text-center">
-               <h5>${actor.name}</h5> as <h6 class="text-primary">${actor.character}</h6>
+               <h5>${actor.name}</h5>  as <h6 class="text-primary">${
+                 actor.character
+               }</h6>
              </div>`;
              }
              actorDiv.addEventListener("click", () => {
