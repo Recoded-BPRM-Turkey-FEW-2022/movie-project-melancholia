@@ -88,69 +88,73 @@ h6 {
 footer {
   background-color: #361e46 !important;
 }
-
+#actorFilmography {
+  max-height: 400px;
+  overflow-y: scroll;
+  text-overflow: ellipsis;
+}
 .readMoreCnt .inner {
   max-height: 145px;
   overflow: hidden;
   margin-top: 20px;
 }
-footer{
-    background-color: #361e46 !important;
+footer {
+  background-color: #361e46 !important;
 }
-.logos{
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-	transform: scale();
-	animation: float 4s ease-in-out infinite;
+.logos {
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transform: scale();
+  animation: float 4s ease-in-out infinite;
 }
-.logos2{
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-	transform: scale();
-	animation: float2 4s ease-in-out infinite;
+.logos2 {
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transform: scale();
+  animation: float2 4s ease-in-out infinite;
 }
 @keyframes float {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: scale();
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-		transform: scale(1.2);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: scale();
-	}
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: scale();
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.2);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: scale();
+  }
 }
 @keyframes float2 {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: scale(1.2);
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-		transform: scale(1);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: scale(1.2);
-	}
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: scale(1.2);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: scale(1.2);
+  }
 }
 
-#aboutPage{
+#aboutPage {
   height: 80vh;
 }
-#footer{
+#footer {
   position: fixed;
   bottom: 0;
 }
-#ftco-navbar{
+#ftco-navbar {
   width: 100vw;
   position: fixed;
   top: 0;
 }
 
-@media screen and (max-width:992px) {
-  #aboutPage{
+@media screen and (max-width: 992px) {
+  #aboutPage {
     flex-direction: column;
   }
 }
