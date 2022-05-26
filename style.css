@@ -9,6 +9,8 @@ eski animasyon arkaplan rengi navigasyonda : f1bc31 css/style.css
 body {
   background-color: #1b131d;
   margin: auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
   color: white;
   font-family: "Roboto", sans-serif;
 }
@@ -132,4 +134,23 @@ footer{
 		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 		transform: scale(1.2);
 	}
+}
+
+#aboutPage{
+  height: 80vh;
+}
+#footer{
+  position: fixed;
+  bottom: 0;
+}
+#ftco-navbar{
+  width: 100vw;
+  position: fixed;
+  top: 0;
+}
+
+@media screen and (max-width:992px) {
+  #aboutPage{
+    flex-direction: column;
+  }
 }

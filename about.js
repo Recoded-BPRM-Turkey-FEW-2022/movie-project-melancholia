@@ -1,7 +1,7 @@
 function about(){
     cleaner();
     CONTAINER.innerHTML= `
-    <section class="d-flex justify-content-center align-items-center w-100">
+    <section class="d-flex justify-content-center align-items-center w-100" id="aboutPage">
         <div class="container container-fluid col-lg-4 p-3 w-100 about1">
           <h3 class="p-2 mb-3">CREATED WITH</h3>
           <img class="logos2 rounded m-3" style="height:112px"src="https://cdn.iconscout.com/icon/free/png-256/bootstrap-226077.png" alt="bootstrap logo">
