@@ -166,8 +166,8 @@ const renderMovie = async (movie) => {
     fetchMovieTrailer(movie.id),
   ]).then((credits) => {
     CONTAINER.innerHTML = `
-  <div class="d-flex flex-row">
-        <div id="renderMovieFirst" class="col-6">
+  <div class="d-flex flex-row text-left">
+        <div id="renderMovieFirst" class="col-6 m-2">
              <img class="w-75" id="movie-backdrop" src=${
                BACKDROP_BASE_URL + movie.backdrop_path
              }>
@@ -195,11 +195,11 @@ const renderMovie = async (movie) => {
            .map((actor) => {
              const actorDiv = document.createElement("div");
              actorDiv.classList =
-               "col-lg-1 col-md-4 col-sm-6 m-3 p-0 rounded d-flex flex-column actorCard";
+               "col-lg-1 col-md-2 col-sm-4 m-4 p-0 rounded d-flex flex-column actorCard";
              if (actor.profile_path == null) {
                actorDiv.innerHTML = `
                <img style="width:185px"class="w-100  rounded-top" src="https://i.pinimg.com/736x/c1/6c/72/c16c7242915b5ee0479c7e530b77fd9b.jpg" ${actor.name} poster">
-             <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-center">
+             <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-center text-center">
                <h5>${actor.name}</h5>
                <h6>${actor.character}</h6>
              </div>`;
@@ -208,8 +208,8 @@ const renderMovie = async (movie) => {
                <img class="w-100 rounded-top" src="${
                  PROFILE_BASE_URL + actor.profile_path
                }" ${actor.name} poster">
-             <div class="h-100 m-0 p-2 row d-flex align-items-center justify-content-center">
-               <h5>${actor.name}</h5> / <h6>${actor.character}</h6>
+             <div class="h-100 m-0 p-2 row d-flex align-items-center justify-content-center text-center">
+               <h5>${actor.name}</h5> as <h6 class="text-primary">${actor.character}</h6>
              </div>`;
              }
              actorDiv.addEventListener("click", () => {
@@ -220,9 +220,9 @@ const renderMovie = async (movie) => {
            .join(" ")}
        
            
-          <ul id="recommendations" class="list-unstyled">
+          <ul id="recommendations" class="list-unstyled m-4">
             ${credits[1].results
-              .slice(0, 4)
+              .slice(0, 3)
               .map((movie) => {
                 const movieDiv = document.createElement("div");
                 movieDiv.classList =
