@@ -169,7 +169,9 @@ const renderMovie = async (movie) => {
   <div class="d-flex flex-row text-left">
         <div id="renderMovieFirst" class="col-6 m-2">
              <img class="w-75" id="movie-backdrop" src=${
-               BACKDROP_BASE_URL + movie.backdrop_path
+               movie.backdrop_path !== null
+                 ? BACKDROP_BASE_URL + movie.backdrop_path
+                 : "/images/movie-null.jpg"
              }>
             <h3 id="movie-title">${movie.title}</h3>
             <p id="movie-release-date"><b>Release Date:</b> ${
@@ -257,7 +259,7 @@ const renderMovie = async (movie) => {
                "col-lg-1 col-md-2 col-sm-4 m-4 p-0 rounded d-flex flex-column actorCard";
              if (actor.profile_path == null) {
                actorDiv.innerHTML = `
-               <img style="width:185px"class="w-100  rounded-top" src="https://i.pinimg.com/736x/c1/6c/72/c16c7242915b5ee0479c7e530b77fd9b.jpg" ${actor.name} poster">
+               <img style="width:185px"class="w-100  rounded-top" src="/images/actor-null.jpg" ${actor.name} poster">
              <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-center text-center">
                <h5>${actor.name}</h5>
                <h6>${actor.character}</h6>
@@ -361,7 +363,7 @@ const renderActor = async (actor) => {
         <div class="col-4">
         <img class="w-75" id="actor-backdrop" src = ${
           actor.profile_path == null
-            ? "https://i.pinimg.com/736x/c1/6c/72/c16c7242915b5ee0479c7e530b77fd9b.jpg"
+            ? "/images/actor-null.jpg"
             : PROFILE_BASE_URL + actor.profile_path
         }>
         </div>
