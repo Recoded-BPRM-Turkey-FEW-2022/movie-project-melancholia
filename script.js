@@ -305,7 +305,7 @@ const renderMovie = async (movie) => {
               .join("")}
           </ul>
     
-        <section class="col-6">
+        <section class="col-5">
           <iframe class="col" height="540" src="https://www.youtube.com/embed/${
             credits[2].results.find(
               (x) => x.name === "Official Trailer" || x.name === "Trailer"
@@ -359,51 +359,54 @@ const renderActor = async (actor) => {
   cleaner();
   const castCredits = fetchActorCredits(actor.id).then((filmography) => {
     CONTAINER.innerHTML = `
-    <div class="flex-row row row-cols-2">
-        <div class="col-4">
-        <img class="w-75" id="actor-backdrop" src = ${
-          actor.profile_path == null
-            ? "/images/actor-null.jpg"
-            : PROFILE_BASE_URL + actor.profile_path
-        }>
-        </div>
-        <div class="d-flex flex-column col-8 text-left">
-            <h3 id="actor-name">${actor.name}</h3>
-            <p id="actor-birthday"><b>Birthday:</b> ${actor.birthday}</p> 
-            ${
-              actor.deathday !== null
-                ? `<p id="actor-deathday"><b>Deathday:</b> ${actor.deathday}</p>`
-                : ""
-            }
-            <p id="actor-popularity"><b>Popularity:</b> ${actor.popularity}</p>
-            <p id="actor-gender"><b>Gender(is a social construct):</b> ${
-              actor.gender == 1 ? "Female(?)" : "Male(?)"
-            } </p> 
-            <h4>Biography:</h4>
-            <div class="readMoreCnt">
-             <div class="row">
-              <div class="span3">
-              <div class="inner">
-              <div class="inCnt">
-              <p id="actor-biography">${actor.biography}</p>
+    <div class="flex-row">
+       <div class="row"> 
+       <div class="col-4">
+       <img class="w-75" id="actor-backdrop" src = ${
+         actor.profile_path == null
+           ? "/images/actor-null.jpg"
+           : PROFILE_BASE_URL + actor.profile_path
+       }>
+       </div>
+       <div class="d-flex flex-column col-8 text-left">
+           <h3 id="actor-name">${actor.name}</h3>
+           <p id="actor-birthday"><b>Birthday:</b> ${actor.birthday}</p> 
+           ${
+             actor.deathday !== null
+               ? `<p id="actor-deathday"><b>Deathday:</b> ${actor.deathday}</p>`
+               : ""
+           }
+           <p id="actor-popularity"><b>Popularity:</b> ${actor.popularity}</p>
+           <p id="actor-gender"><b>Gender(is a social construct):</b> ${
+             actor.gender == 1 ? "Female(?)" : "Male(?)"
+           } </p> 
+           <h4>Biography:</h4>
+           <div class="readMoreCnt">
+            <div class="row">
+             <div class="span3">
+             <div class="inner">
+             <div class="inCnt">
+             <p id="actor-biography">${actor.biography}</p>
 
-              </div>
-              </div>
-              <button class="readMore">Read More</button>
-              </div>
-              </div>
-            </div>
-            </div>
-          <div class="d-flex flex-column col text-left">
-            <h4 class="">Filmography</h4>
+             </div>
+             </div>
+             <button class="readMore">Read More</button>
+             </div>
+             </div>
+           </div>
+           </div>
+           </div> 
+      
+          <div id="actorFilmography">
+            <h4>Filmography</h4>
             <ul id="filmography">
             ${filmography.cast
               .map((movie) => {
-                return `<li onclick="movieDetails()" id= ${movie.id} class="movie">${movie.title}</li>`;
+                return `<li id= ${movie.id} class="movie">${movie.title}</li>`;
               })
               .join(" ")}
               </ul>
-            </div>
+          </div>
       </div>`;
 
     //This is the jQuery part, taken from https://codepen.io/tusharbandal/pen/yLpbdR
