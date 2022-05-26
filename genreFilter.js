@@ -11,7 +11,6 @@ const genreList = {
 const genreFilter = async (filterpath) => {
     cleaner();
     const path = genreList[filterpath];
-    console.log(path);
   const movies = await genreFilterFetch(path);
   renderMovies(movies.results);
 };
