@@ -6,11 +6,13 @@ const BACKDROP_BASE_URL = "http://image.tmdb.org/t/p/w780";
 const CONTAINER = document.querySelector("#movies");
 const TOPFIVEACTORS = document.querySelector("#topFiveActors");
 const SINGLEMOVCONT = document.querySelector("#singleMovie");
+let photoDiv = document.getElementById("bgdiv");
 
 const cleaner = () => {
   CONTAINER.innerHTML = "";
   SINGLEMOVCONT.innerHTML = "";
   TOPFIVEACTORS.innerHTML = "";
+  photoDiv.innerHTML = "";
 };
 // Don't touch this function please
 const autorun = async () => {
@@ -165,83 +167,92 @@ const renderMovie = async (movie) => {
     fetchMovieRecommendations(movie.id),
     fetchMovieTrailer(movie.id),
   ]).then((credits) => {
+    let photoDiv = document.getElementById("bgdiv");
+    photoDiv.innerHTML = `<img id="movie-backdropp" src=${
+      movie.backdrop_path !== null
+        ? BACKDROP_BASE_URL + movie.backdrop_path
+        : "/images/movie-null.jpg"
+    } style="
+    position:absolute;
+    z-index:-999;
+    width:190vw;
+    height:150vh;
+    transform:translateX(-20%);
+    filter:blur(8px) brightness(0.4);
+    ">`;
     CONTAINER.innerHTML = `
-  <div class="d-flex flex-row text-left">
-        <div id="renderMovieFirst" class="col-6 m-2">
-             <img class="w-75" id="movie-backdrop" src=${
-               movie.backdrop_path !== null
-                 ? BACKDROP_BASE_URL + movie.backdrop_path
-                 : "/images/movie-null.jpg"
-             }>
-            <h3 id="movie-title">${movie.title}</h3>
-            <p id="movie-release-date"><b>Release Date:</b> ${
-              movie.release_date
-            }</p>
-            <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-            <p id="movie-language"><b>Language:</b> ${
-              movie.original_language == "en"
-                ? "English"
-                : movie.original_language == "es"
-                ? "Spanish"
-                : movie.original_language == "fr"
-                ? "French"
-                : movie.original_language == "it"
-                ? "Italian"
-                : movie.original_language == "de"
-                ? "German"
-                : movie.original_language == "pt"
-                ? "Portuguese"
-                : movie.original_language == "ru"
-                ? "Russian"
-                : movie.original_language == "ja"
-                ? "Japanese"
-                : movie.original_language == "ko"
-                ? "Korean"
-                : movie.original_language == "zh"
-                ? "Chinese"
-                : movie.original_language == "ar"
-                ? "Arabic"
-                : movie.original_language == "tr"
-                ? "Turkish"
-                : movie.original_language == "pl"
-                ? "Polish"
-                : movie.original_language == "nl"
-                ? "Dutch"
-                : movie.original_language == "sv"
-                ? "Swedish"
-                : movie.original_language == "no"
-                ? "Norwegian"
-                : movie.original_language == "fi"
-                ? "Finnish"
-                : movie.original_language == "da"
-                ? "Danish"
-                : movie.original_language == "cs"
-                ? "Czech"
-                : movie.original_language == "hu"
-                ? "Hungarian"
-                : movie.original_language == "el"
-                ? "Greek"
-                : movie.original_language == "he"
-                ? "Hebrew"
-                : movie.original_language == "hi"
-                ? "Hindi"
-                : movie.original_language == "id"
-                ? "Indonesian"
-                : movie.original_language == "ms"
-                ? "Malay"
-                : movie.original_language == "no"
-                ? "Norwegian"
-                : movie.original_language == "fa"
-                ? "Persian"
-                : movie.original_language == "ro"
-                ? "Romanian"
-                : "Unknown"
-            }</p>
-            <p id="movie-director"><b>Director:</b> ${
-              credits[0].crew.find((crew) => crew.job === "Director").name
-            }</p>
+    <h1 class="p-4" id="movie-title">${movie.title.toUpperCase()}</h1>
+    <div class="d-flex flex-row text-left p-2 m-3">
+        <div id="renderMovieFirst" class="col-6 m-3">
             <h4>Overview:</h4>
             <p id="movie-overview">${movie.overview}</p>
+            <h4 class="">Details: </h4>
+          <p id="movie-release-date"><b>Release Date:</b> ${
+            movie.release_date
+          }</p>
+          <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
+          <p id="movie-language"><b>Language:</b> ${
+            movie.original_language == "en"
+              ? "English"
+              : movie.original_language == "es"
+              ? "Spanish"
+              : movie.original_language == "fr"
+              ? "French"
+              : movie.original_language == "it"
+              ? "Italian"
+              : movie.original_language == "de"
+              ? "German"
+              : movie.original_language == "pt"
+              ? "Portuguese"
+              : movie.original_language == "ru"
+              ? "Russian"
+              : movie.original_language == "ja"
+              ? "Japanese"
+              : movie.original_language == "ko"
+              ? "Korean"
+              : movie.original_language == "zh"
+              ? "Chinese"
+              : movie.original_language == "ar"
+              ? "Arabic"
+              : movie.original_language == "tr"
+              ? "Turkish"
+              : movie.original_language == "pl"
+              ? "Polish"
+              : movie.original_language == "nl"
+              ? "Dutch"
+              : movie.original_language == "sv"
+              ? "Swedish"
+              : movie.original_language == "no"
+              ? "Norwegian"
+              : movie.original_language == "fi"
+              ? "Finnish"
+              : movie.original_language == "da"
+              ? "Danish"
+              : movie.original_language == "cs"
+              ? "Czech"
+              : movie.original_language == "hu"
+              ? "Hungarian"
+              : movie.original_language == "el"
+              ? "Greek"
+              : movie.original_language == "he"
+              ? "Hebrew"
+              : movie.original_language == "hi"
+              ? "Hindi"
+              : movie.original_language == "id"
+              ? "Indonesian"
+              : movie.original_language == "ms"
+              ? "Malay"
+              : movie.original_language == "no"
+              ? "Norwegian"
+              : movie.original_language == "fa"
+              ? "Persian"
+              : movie.original_language == "ro"
+              ? "Romanian"
+              : "Unknown"
+          }</p>
+          <p id="movie-director"><b>Director:</b> ${
+            credits[0].crew.find((crew) => crew.job === "Director").name
+          }</p>
             <p id="production-companies"><b>Production Companies:</b> ${movie.production_companies
               .map((company) => company.name)
               .join(", ")}</p>
@@ -283,7 +294,7 @@ const renderMovie = async (movie) => {
            .join(" ")}
        
            
-          <ul id="recommendations" class="list-unstyled m-4">
+          <ul id="recommendations" class="list-unstyled">
             ${credits[1].results
               .slice(0, 3)
               .map((movie) => {
@@ -305,14 +316,13 @@ const renderMovie = async (movie) => {
               .join("")}
           </ul>
     
-        <section class="col-5">
-          <iframe class="col" height="540" src="https://www.youtube.com/embed/${
+        <section class="col-6 p-3 text-left d-flex justify-content-center">
+          <iframe class="" style="width:552px; height:311px; margin:auto" src="https://www.youtube.com/embed/${
             credits[2].results.find(
               (x) => x.name === "Official Trailer" || x.name === "Trailer"
             ).key
           }"allowfullscreen> </iframe>
         </section>
-        
     </div>`;
   });
 };
