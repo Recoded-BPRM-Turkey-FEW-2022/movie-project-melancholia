@@ -131,28 +131,21 @@ const renderCredits = (credits) => {
 const renderMovies = (movies) => {
   cleaner();
   movies.map((movie) => {
+    //console.log(movie);
     const movieDiv = document.createElement("div");
     movieDiv.classList =
-      "col-lg-3 col-md-4 col-sm-12 m-3 p-0 rounded d-flex flex-column movieCard";
-    if (movie.backdrop_path == null) {
+      "col-lg-3 col-md-5 col-sm-10 m-3 p-0 rounded d-flex flex-column movieCard";
       movieDiv.innerHTML = `
-        <img class="w-100 rounded-top" src="/images/movie-null.jpg" alt="${
-          movie.title
-        } poster">
-      <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-between ">
-        <h5 class="text-left mt-1 ml-2">${movie.title.toUpperCase()}</h5>
-        <h6 class="vote_average">${movie.vote_average}</h6>
-      </div>`;
-    } else if (movie.backdrop_path !== null) {
-      movieDiv.innerHTML = `
-        <img class="w-100 rounded-top" src="${
-          BACKDROP_BASE_URL + movie.backdrop_path
-        }" alt="${movie.title} poster">
-      <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-between ">
-        <h5 class="text-left mt-1 ml-2">${movie.title.toUpperCase()}</h5>
-        <h6 class="vote_average">${movie.vote_average}</h6>
-      </div>`;
-    }
+        <img class="w-100 rounded-top" src="${movie.backdrop_path !== null ? BACKDROP_BASE_URL + movie.backdrop_path : "/images/movie-null.jpg"}"
+          alt="${movie.title} poster">
+        <div class="h-100 m-0 p-2 d-flex align-items-center justify-content-between ">
+          <h5 class="text-left mt-1 ml-2">${movie.title.toUpperCase()}</h5>
+          <h6 class="vote_average">${movie.vote_average}</h6>
+        </div>
+        <div id="overview">
+          <p class="text-left mt-2 ml-2">${movie.overview}</p>
+        </div>`;
+    //}
     movieDiv.addEventListener("click", () => {
       movieDetails(movie);
     });
